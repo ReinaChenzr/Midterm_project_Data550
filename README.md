@@ -1,5 +1,3 @@
----
-
 ## **1. Team Designations**
 
 - **Team Lead:** Ruilong Chen
