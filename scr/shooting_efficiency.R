@@ -1,6 +1,7 @@
 # Load necessary libraries
 library(dplyr)
 library(here)
+library(ggplot2)
 # Read the data
 data <- read.table(here("data", "nba_2025-03-07"), sep = ",", header = TRUE, quote = "\"", fill = TRUE)
 # Exclude players with zero minutes played
