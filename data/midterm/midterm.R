@@ -1,7 +1,8 @@
 library(dplyr)
 library(ggplot2)
 library(readr)
-nba_data <- read_csv("/Users/reina/Desktop/midterm project/nba_2025-03-07.csv")
+setwd("/Users/reina/Desktop/midterm")
+nba_data <- read.csv("nba_2025-03-07.csv")
 team_stats <- nba_data %>%
   group_by(Team) %>%
   summarise(
@@ -32,8 +33,11 @@ best_defensive_teams <- team_stats %>%
   arrange(desc(DefenseScore)) %>%
   head(5)
 
+if (!dir.exists("output")) {
+  dir.create("output")
+}
 
-write.csv(team_stats, "/Users/reina/Desktop/midterm project/team_summary_stats.csv", row.names = FALSE)
-write.csv(top_scoring_teams, "/Users/reina/Desktop/midterm project/top_scoring_teams.csv", row.names = FALSE)
-write.csv(best_defensive_teams, "/Users/reina/Desktop/midterm project/best_defensive_teams.csv", row.names = FALSE)
 
+write.csv(team_stats, "output/team_summary_stats.csv", row.names = FALSE)
+write.csv(top_scoring_teams, "output/top_scoring_teams.csv", row.names = FALSE)
+write.csv(best_defensive_teams, "output/best_defensive_teams.csv", row.names = FALSE)
